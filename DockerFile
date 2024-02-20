@@ -1,6 +1,8 @@
 FROM python:3.11-slim
 
-COPY . .
+WORKDIR /var/api
+
+COPY . /var/api
 
 RUN pip install -r requirements.txt
 
