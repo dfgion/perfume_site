@@ -37,7 +37,7 @@ async def authenticate_user(fake_db, username: str, password: str) -> bool | Use
         return False
     if not verify_password(password, user.hashed_password):
         return False
-    return user
+    return user # True 
 
 
 def create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:
