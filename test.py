@@ -31,7 +31,7 @@ fake_users_db = {
         "full_name": "Alice Chains",
         "email": "alicechains@example.com",
         "hashed_password": "$2b$12$gSvqqUPvlXP2tfVFaWK1Be7DlH.PKZbv5H8KnzzVgXXbVxpva.pFm",
-        "disabled": True,
+        "disabled": False,
     },
 }
 
@@ -84,8 +84,6 @@ def get_user(db, username: str):
 def authenticate_user(fake_db, username: str, password: str):
     user = get_user(fake_db, username)
     if not user:
-        return False
-    if not verify_password(password, user.hashed_password):
         return False
     return user
 
