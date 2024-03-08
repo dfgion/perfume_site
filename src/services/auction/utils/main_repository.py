@@ -12,8 +12,8 @@ class AbstractRepository(ABC):
 class SqlAlchemyRepository(AbstractRepository):
     model = None
     
-    async def get_products():
+    async def get_products(self, ):
         pass
     
-    async def get_user_products():
+    async def get_user_products(self, ):
         pass

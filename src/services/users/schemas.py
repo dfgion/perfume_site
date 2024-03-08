@@ -23,10 +23,18 @@ class User(BaseModel):
     
     class Config:
         from_attributes = True
+        
+class RegistrateUser(BaseModel):
+    login: str 
+    email: str 
+    password: str
+    
+class RegistratedUser(BaseModel):
+    id: int
     
     
 class UserInDB(User):
-    hashed_password: str
+    id: str
     
 
     

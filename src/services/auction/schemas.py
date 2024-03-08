@@ -15,7 +15,6 @@ class User(BaseModel):
     class Config:
         from_attributes = True
     
-
 class UserProduct(BaseModel):
     user_id: int
     perfume_name: str

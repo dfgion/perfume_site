@@ -10,7 +10,7 @@ auction = FastAPI()
 
 
 
-@auction.get(path='products/me', response_model=list[UserProduct])
+@auction.get(path='/products/me', response_model=list[UserProduct])
 async def get_products(current_user = Annotated[User, Depends(get_active_user)]):
     pass
 

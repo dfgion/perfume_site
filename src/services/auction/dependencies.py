@@ -7,7 +7,8 @@ from passlib.context import CryptContext
 from fastapi import Depends, HTTPException, status, Security
 from fastapi.security import OAuth2PasswordBearer, SecurityScopes
 
-from pydantic import ValidationError
+from pydantic import ValidationError, BaseModel
+from datetime import date
 
 from .schemas import User, TokenData
 
@@ -52,6 +53,7 @@ async def get_user(security_scopes: SecurityScopes, token = Annotated[OAuth2Pass
                 detail="Not enough permissions",
                 headers={"WWW-Authenticate": authenticate_value},
             )
+    return user
 
 async def get_active_user(
     current_user: Annotated[User, Security(get_user, scopes=["me", "products"])]

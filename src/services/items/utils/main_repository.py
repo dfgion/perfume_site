@@ -8,8 +8,8 @@ class AbstractRepository(ABC):
 class SqlAlchemyRepository(AbstractRepository):
     model = None
     
-    async def get_all():
+    async def get_all(self, ):
         pass
     
-    async def get_one():
+    async def get_one(self, ):
         pass

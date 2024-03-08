@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv(dotenv_path=r'C:\Users\Даниил\Desktop\perfume_site\venv\.env')
 
 engine = create_async_engine(
-        url=os.getenv("ACTION_URL"),
+        url=os.getenv("USERS_URL"),
         echo=True,
     )
 
