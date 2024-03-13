@@ -11,6 +11,7 @@ from pydantic import ValidationError, BaseModel
 from datetime import date
 
 from .schemas import User, TokenData
+from .repository import AuctionRepository
 
 
 SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
@@ -43,7 +44,8 @@ async def get_user(security_scopes: SecurityScopes, token = Annotated[OAuth2Pass
         token_data = TokenData(scopes=token_scopes, username=username)
     except (JWTError, ValidationError):
         raise credentials_exception
-    user = get_user(username=token_data.username)
+    # RabbitMQ to usersDB
+    user = 'Заглушка'
     if user is None:
         raise credentials_exception
     for scope in security_scopes.scopes:

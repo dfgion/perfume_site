@@ -4,7 +4,7 @@ import uuid
 from sqlalchemy import DATE
 from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase
 
-from .schemas import User
+from schemas import User
 
 class Model(DeclarativeBase):
     pass

@@ -1,7 +1,7 @@
 from .models import ProductOrm
 from .utils.main_repository import SqlAlchemyRepository
 
-class ProductRepository(SqlAlchemyRepository):
+class AuctionRepository(SqlAlchemyRepository):
     model = ProductOrm
     
     

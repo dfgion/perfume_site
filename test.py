@@ -1,9 +1,13 @@
+from starlette.middleware.sessions import SessionMiddleware
 from fastapi import FastAPI
-from fastapi.responses import RedirectResponse
+
+
+from test3 import router
+# Initialize our OAuth instance from the client ID and client secret specified in our .env file
+
+
 
 app = FastAPI()
 
-
-@app.get("/typer")
-async def redirect_typer():
-    return RedirectResponse("https://typer.tiangolo.com")
+app.include_router(router)
+app.add_middleware(SessionMiddleware, secret_key='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')

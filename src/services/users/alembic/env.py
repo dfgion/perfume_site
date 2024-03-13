@@ -6,11 +6,11 @@ from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
+import sys
+sys.path.append(r'C:\Users\Даниил\Desktop\perfume_site')
 
-from src.db.config import Model
-from config import DB_HOST, DB_NAME, DB_PASS, DB_PORT, DB_USER
-
-from src import db
+from src.services.users.models import Model, UserOrm
+from config import USERS_URL
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -31,7 +31,7 @@ target_metadata = Model.metadata
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
-config.set_main_option(name='sqlalchemy.url', value=f'postgresql+asyncpg://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}')
+config.set_main_option(name='sqlalchemy.url', value=USERS_URL)
 
 
 def run_migrations_offline() -> None:

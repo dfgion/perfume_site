@@ -1,16 +1,15 @@
 from typing import Annotated
 
-from fastapi import FastAPI, Depends
+from fastapi import Depends
+from fastapi.routing import APIRouter
 
 from .schemas import UserProduct, User
 from .dependencies import get_active_user
 
-auction = FastAPI()
 
+auction_router = APIRouter(prefix='/api/v1', tags='auction')
 
-
-
-@auction.get(path='/products/me', response_model=list[UserProduct])
+@auction_router.get(path='/products/me', response_model=list[UserProduct])
 async def get_products(current_user = Annotated[User, Depends(get_active_user)]):
     pass
 

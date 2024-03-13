@@ -1,20 +1,22 @@
 import datetime
 from pydantic import BaseModel
 
-class Token(BaseModel):
-    access_token: str
-    token_type: str
-    
-    class Config:
-        from_attributes = True
-    
+class FormData(BaseModel):
+    login: str
+    password: str
+
 class TokenData(BaseModel):
-    username: str | None = None
+    access_token: str
+    refresh_token: str
+    token_type: str = 'bearer'
+    
+class TokenScopes(BaseModel):
+    scopes: list[str] = []
     
 class User(BaseModel):
     id: int
-    username: str
-    email: str | None
+    login: str
+    email: str 
     hashed_password: str
     tg_id: str | None
     photo_path: str
@@ -25,16 +27,13 @@ class User(BaseModel):
         from_attributes = True
         
 class RegistrateUser(BaseModel):
-    login: str 
-    email: str 
+    login: str
+    email: str
     password: str
     
 class RegistratedUser(BaseModel):
-    id: int
-    
-    
-class UserInDB(User):
     id: str
+    
     
 
     
