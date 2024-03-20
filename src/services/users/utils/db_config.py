@@ -1,11 +1,11 @@
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
 import os
-from dotenv import load_dotenv
 
-load_dotenv(dotenv_path=r'C:\Users\Даниил\Desktop\perfume_site\venv\.env')
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
+
+from settings import Config
 
 engine = create_async_engine(
-        url=os.getenv("USERS_URL"),
+        url=Config.USERS_DB_URL,
         echo=True,
     )
 
