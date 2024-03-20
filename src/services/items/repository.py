@@ -1,14 +1,18 @@
-from .models import ManufacturerOrm, PerfumeOrm, TagOrm, Associative_Perfume_Tag_Orm
-from .utils.main_repository import SqlAlchemyRepository
+from .models import Brand, Perfume, Tag, Associative_Perfume_Tag
+from ..core.repository import SqlAlchemyRepository
+
 
 class ManufacturerRepository(SqlAlchemyRepository):
-    model = ManufacturerOrm
-    
+    model = Brand
+
+
 class PerfumeRepository(SqlAlchemyRepository):
-    model = PerfumeOrm
-    
+    model = Perfume
+
+
 class TagRepository(SqlAlchemyRepository):
-    model = TagOrm
-    
+    model = Tag
+
+
 class AssociativeRepository(SqlAlchemyRepository):
-    model = Associative_Perfume_Tag_Orm
+    model = Associative_Perfume_Tag
